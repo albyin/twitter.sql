@@ -88,8 +88,13 @@
     // When 'new_tweet' events are fired, do something with the packaged tweet
     socket.on('new_tweet', function (tweet) {
         console.log(tweet);
-        alert('Refreshing... check the console...');
-        // some logic to add the new tweet to the DOM…
+        
+        var tweets = document.getElementById("listotweets");
+        console.log(tweets);
+        var li = document.createElement("li");
+        // li.innerHTML = tweet.name + " - " + tweet.text;
+        li.innerHTML = "<h2><a href='/users/"+tweet.name+"'>"+tweet.name+"</a></h2><p><a href='/users/"+tweet.name+"/tweets/"+tweet.id+"'>"+tweet.text+"</a></p>";
+        tweets.appendChild(li);
     });
 </script>
 </body>
